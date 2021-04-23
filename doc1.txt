@@ -1,0 +1,24 @@
+Documentation
+Assignment 1.1
+
+Name: Kartikey Gupta
+Roll Number: 2019427
+Branch: CSB
+
+//Explanation:
+The program works according to the fork mechanism.
+As soon as the fork function is called, the program splits into 2 programs each with a different pid.
+pid=0 goes to the child while pid=1 goes to the parent. A negative pid indicates the fork has failed and that gives an error which is handled by us.
+The program with child pid goes to the excelp() statement.
+This is where the child program is called and executed, and it replaces the child process by this new program file in the execlp command.
+The child process computes the average scores of all section A students and prints their average score after their assignment scores.
+The parent process waits for the child process to complete. This is achieved by the waitpid command.
+After the child completes, the exit system call is used to terminate the child program with success.
+The control is returned to the parent process and the parent process then computes the average score of section B students in the same manner the child process did for section A.
+
+
+//Errors handled:
+Fork failed: if the forks returns a negative pid then the fork has failed.
+File cannot be opened: if the file does not exist or it is damaged, this error is shown, and the program exits using the exit(1) system call.
+Waitpid was unsuccessful: if waitpid returns a negative pid, either the process does not exist or waitpid was interrupted by a signal.
+
